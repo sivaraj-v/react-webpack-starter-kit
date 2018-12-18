@@ -1,5 +1,4 @@
-# Simple-react-webpack-for-my-juniors
-
+# Simple webpack boilerplate
 
 A ready to use simple webpack boilerplate.
 
@@ -101,4 +100,3 @@ ReactDOM.render(<Index />, document.getElementById("index"));
 </html>
 ```
 10. Create **.gitignore** file and input **/node_modules/** and **/dist**.
-
