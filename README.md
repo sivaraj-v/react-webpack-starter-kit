@@ -10,82 +10,63 @@ A ready to use simple webpack boilerplate.
 
 **If you prefer to install things yourself you can follow the instructions below**
 
-1.  Run `npm init` and type your answers to the questions or you can run `npm init -y` to say yes to every question - you will get default settings
-2.  Install the following dependencies:
+1.  Install the following:
 ```
 npm install -g webpack webpack-cli
-npm i react react-dom -S
+npm install
 ```
-3.  Install the following dev dependencies:
-```
-npm i babel-core babel-loader babel-preset-env babel-preset-react css-loader html-webpack-plugin style-loader webpack webpack-cli webpack-dev-server -D
-```
-4. Update your scripts to the following:
+2. Update your scripts to the following:
 ```
 "start": "webpack-dev-server --mode development --open",
 "build": "webpack --mode production"
 ```
-5. Create **.babelrc** file with the following configurations:
+3. Create **.babelrc** file with the following configurations:
 ```
 {
   "presets": ["env", "react"]
 }
 ```
-5. Create **webpack.config.js** file with the following configurations:
+4. Create **webpack.config.js** file with the following configurations:
 ```
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-
-const htmlWebpackPlugin = new HtmlWebPackPlugin({
-  template: "./src/index.html",
-  filename: "./index.html"
-});
+const path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader"
-        }
-      },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              importLoaders: 1,
-              localIdentName: "[name]_[local]_[hash:base64]",
-              sourceMap: true,
-              minimize: true
-            }
-          }
-        ]
-      }
-    ]
+  entry: path.resolve(__dirname, './src/index.js'),
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
   },
-  plugins: [htmlWebpackPlugin]
+  module: {
+    rules: [{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: './index.html'
+    })
+  ]
 };
+
 ```
-7. Create **src** folder with **index.js** and **index.html** file.
-8. **index.js** should have:
+5. Create **src** folder with **index.js** and **index.html** file.
+6. **index.js** should have:
 ```
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 const Index = () => {
+  let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
+  console.log(x); // 1
+  console.log(y); // 2
+  console.log(z); // { a: 3, b: 4 }
+  [5, 6].map((n) => console.log(n));
   return <div>Hello React!</div>;
 };
+ReactDOM.render(<Index />, document.getElementById('index'));
 
-ReactDOM.render(<Index />, document.getElementById("index"));
 ```
-9. **index.html** should have:
+7. **index.html** should have:
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -100,4 +81,4 @@ ReactDOM.render(<Index />, document.getElementById("index"));
 </body>
 </html>
 ```
-10. Create **.gitignore** file and input **/node_modules/** and **/dist**.
+8. Create **.gitignore** file and input **/node_modules/** and **/dist**.
