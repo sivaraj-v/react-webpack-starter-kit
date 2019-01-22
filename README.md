@@ -13,6 +13,7 @@ A ready to use simple webpack boilerplate.
 1.  Run `npm init` and type your answers to the questions or you can run `npm init -y` to say yes to every question - you will get default settings
 2.  Install the following dependencies:
 ```
+npm install -g webpack webpack-cli
 npm i react react-dom -S
 ```
 3.  Install the following dev dependencies:
