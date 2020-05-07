@@ -1,4 +1,4 @@
-# Simple webpack boilerplate
+# Webpack 5 Boilerplate
 
 A ready to use simple webpack boilerplate.
 
@@ -82,3 +82,18 @@ ReactDOM.render(<Index />, document.getElementById('index'));
 </html>
 ```
 8. Create **.gitignore** file and input **/node_modules/** and **/dist**.
+
+## Feature
+1. HtmlWebpackPlugin custom header configuration
+2. ProgressPlugin added
+![N|Solid](https://i.ibb.co/VYmkC2C/Screenshot-2020-05-07-at-4-08-57-PM.png)
+3. Added Lodash and chuck build are added
+![N|Solid](https://i.ibb.co/8m6xHYr/Screenshot-2020-05-07-at-4-14-21-PM.png)
+![N|Solid](https://i.ibb.co/6mgM7h1/Screenshot-2020-05-07-at-4-16-31-PM.png)
+
+## Bug
+
+```
+10% building(node:94651) [DEP_WEBPACK_MAIN_TEMPLATE_GET_ASSET_PATH] DeprecationWarning: MainTemplate.getAssetPath is deprecated (use Compilation.getAssetPath instead)
+95% emitting HtmlWebpackPlugin(node:94651) [DEP_WEBPACK_MAIN_TEMPLATE_GET_PUBLIC_PATH] DeprecationWarning: MainTemplate.getPublicPath is deprecated (use Compilation.getAssetPath(compilation.outputOptions.publicPath, options) instead)
+```
