@@ -1,17 +1,19 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
   output: {
-    
-
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
   },
   module: {
-    rules: [{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }]
+    rules: [
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }, 
+      { test: /\.css$/, use: ["style-loader", "css-loader"]}
+    ]
   },
   optimization: {
     runtimeChunk: 'single',
@@ -43,6 +45,7 @@ module.exports = {
         'charset': 'UTF-8'
       }
     }),
-    new webpack.ProgressPlugin({ percentBy: "entries" })
+    new webpack.ProgressPlugin({ percentBy: "entries" }),
+    new BundleAnalyzerPlugin
   ]
 };
