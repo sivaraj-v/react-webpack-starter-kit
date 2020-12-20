@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import difference from 'lodash'
-
+import "./sample.css"
 const Index = () => {
   let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
   console.log(x); // 1

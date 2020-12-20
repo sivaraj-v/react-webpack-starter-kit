@@ -1,7 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
@@ -12,8 +14,23 @@ module.exports = {
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }, 
-      { test: /\.css$/, use: ["style-loader", "css-loader"]}
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+          },
+        ],
+      },
     ]
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    port: 9000,
+    open: true
   },
   optimization: {
     runtimeChunk: 'single',
@@ -36,6 +53,7 @@ module.exports = {
     },
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Welcome to sivaraj-v github ',
       template: './src/index.html',
@@ -46,6 +64,9 @@ module.exports = {
       }
     }),
     new webpack.ProgressPlugin({ percentBy: "entries" }),
-    new BundleAnalyzerPlugin
+    new MiniCssExtractPlugin({
+      filename: `[name].css`,
+    }),
+    // new BundleAnalyzerPlugin()
   ]
 };
