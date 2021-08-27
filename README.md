@@ -91,9 +91,3 @@ ReactDOM.render(<Index />, document.getElementById('index'));
 ![N|Solid](https://i.ibb.co/8m6xHYr/Screenshot-2020-05-07-at-4-14-21-PM.png)
 ![N|Solid](https://i.ibb.co/6mgM7h1/Screenshot-2020-05-07-at-4-16-31-PM.png)
 
-## Bug
-
-```
-10% building(node:94651) [DEP_WEBPACK_MAIN_TEMPLATE_GET_ASSET_PATH] DeprecationWarning: MainTemplate.getAssetPath is deprecated (use Compilation.getAssetPath instead)
-95% emitting HtmlWebpackPlugin(node:94651) [DEP_WEBPACK_MAIN_TEMPLATE_GET_PUBLIC_PATH] DeprecationWarning: MainTemplate.getPublicPath is deprecated (use Compilation.getAssetPath(compilation.outputOptions.publicPath, options) instead)
-```
