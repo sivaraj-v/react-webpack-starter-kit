@@ -91,3 +91,7 @@ ReactDOM.render(<Index />, document.getElementById('index'));
 ![N|Solid](https://i.ibb.co/8m6xHYr/Screenshot-2020-05-07-at-4-14-21-PM.png)
 ![N|Solid](https://i.ibb.co/6mgM7h1/Screenshot-2020-05-07-at-4-16-31-PM.png)
 
+
+
+Next Updated
+https://stackoverflow.com/questions/64557638/how-to-polyfill-node-core-modules-in-webpack-5
