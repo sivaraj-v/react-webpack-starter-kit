@@ -27,11 +27,14 @@ module.exports = {
       },
     ]
   },
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    port: 9000,
-    open: true
-  },
+devServer: {
+   port: 8080,
+   hot: "only",
+   static: {
+      directory: path.join(__dirname, './dist'),
+      serveIndex: true,
+    },
+ },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
