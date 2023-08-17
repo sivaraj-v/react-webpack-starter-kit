@@ -1,4 +1,4 @@
-# Webpack 5 Boilerplate
+# React 18 + Webpack 5 Boilerplate
 
 A ready to use simple webpack boilerplate.
 
