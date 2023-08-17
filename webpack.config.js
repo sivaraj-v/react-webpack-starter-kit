@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -49,7 +48,6 @@ devServer: {
     new webpack.ProgressPlugin({ percentBy: "entries" }),
     new MiniCssExtractPlugin({
       filename: `[name].css`,
-    }),
-    // new BundleAnalyzerPlugin()
+    })
   ]
 };

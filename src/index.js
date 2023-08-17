@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import difference from 'lodash'
 import "./sample.css"
 const Index = () => {
@@ -11,4 +11,7 @@ const Index = () => {
   console.log(difference([2, 1], [2, 3]));
   return <div>Hello React!</div>;
 };
-ReactDOM.render(<Index />, document.getElementById('index'));
+
+const container = document.getElementById('index');
+const root = ReactDOM.createRoot(container);
+root.render(<Index/>);
